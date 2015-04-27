@@ -19,7 +19,7 @@
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'" Label="Configuration">
     <ConfigurationType>Application</ConfigurationType>
     <UseDebugLibraries>true</UseDebugLibraries>
-    <CharacterSet>Unicode</CharacterSet>
+    <CharacterSet>MultiByte</CharacterSet>
     <UseOfMfc>Dynamic</UseOfMfc>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'" Label="Configuration">
@@ -51,6 +51,7 @@
       <WarningLevel>Level3</WarningLevel>
       <Optimization>Disabled</Optimization>
       <PreprocessorDefinitions>WIN32;_WINDOWS;_DEBUG;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <AdditionalIncludeDirectories>.\SkinWin;..\common\inc;$(ProjectDir)</AdditionalIncludeDirectories>
     </ClCompile>
     <Link>
       <SubSystem>Windows</SubSystem>
@@ -99,15 +100,31 @@
     <None Include="res\biyesheji.rc2" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="..\Common\inc\NL_QQwry.h" />
+    <ClInclude Include="..\Common\inc\threadex.h" />
     <ClInclude Include="biyesheji.h" />
     <ClInclude Include="ClientDlg.h" />
+    <ClInclude Include="DealCMDThread.h" />
+    <ClInclude Include="ListenConnectionThread.h" />
     <ClInclude Include="Resource.h" />
+    <ClInclude Include="SkinWin\skinscrollbar.h" />
+    <ClInclude Include="SkinWin\skinscrollwnd.h" />
+    <ClInclude Include="SkinWin\SortHeaderCtrl.h" />
+    <ClInclude Include="SkinWin\XPListCtrl.h" />
     <ClInclude Include="stdafx.h" />
     <ClInclude Include="targetver.h" />
   </ItemGroup>
   <ItemGroup>
+    <ClCompile Include="..\Common\inc\NL_QQwry.cpp" />
+    <ClCompile Include="..\Common\inc\threadex.cpp" />
     <ClCompile Include="biyesheji.cpp" />
     <ClCompile Include="ClientDlg.cpp" />
+    <ClCompile Include="DealCMDThread.cpp" />
+    <ClCompile Include="ListenConnectionThread.cpp" />
+    <ClCompile Include="SkinWin\skinscrollbar.cpp" />
+    <ClCompile Include="SkinWin\skinscrollwnd.cpp" />
+    <ClCompile Include="SkinWin\SortHeaderCtrl.cpp" />
+    <ClCompile Include="SkinWin\XPListCtrl.cpp" />
     <ClCompile Include="stdafx.cpp">
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">Create</PrecompiledHeader>
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">Create</PrecompiledHeader>

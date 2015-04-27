@@ -19,6 +19,10 @@ using namespace std;
 #include "UtilityStruct.h"
 #include "UtilityMacro.h"
 
+
+#include "ListenConnectionThread.h"
+
+
 #include "ThreadEx.h"				// 线程基类
 #include "RegisterKey.h"
 #include "SystemInfo.h"
@@ -31,28 +35,5 @@ using namespace std;
 #include "hi_play_audioout.h"
 #include "hi_play_audioin.h"
 
-#include "ListenConnectionThread.h"
-#include "DealCMDThread.h"
-#include "ReceiveCameraThread.h"
-#include "ReceiveAudioRenderThread.h"
-#include "ReceiveScreenThread.h"
-#include "ReceiveFileThread.h"
-#include "SendFileThread.h"
-#include "CMDShellThread.h"
-#include "ScreenSnap.h"
-#include "VideoCodec.h"
-
 #include "XPListCtrl.h"
-#include "SkinWin.h"
-#include "XPButton.h"
-#include "XPEdit.h"
-#include "SkinComboBox.h"
-#include "PictureWnd.h"
-#include "ntray.h"
-#include "XPCheckBox.h"
-#include "XPTreeCtrl.h"
-#include "ColorProgress.h"
-#include "WZDTLTIP.H"
-#include "HyperLink.H"
-
 #endif

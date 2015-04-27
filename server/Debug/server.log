@@ -1,4 +1,4 @@
-﻿生成启动时间为 2015-4-22 16:35:36。
+﻿生成启动时间为 2015-4-26 18:42:22。
 项目“E:\毕设\biyesheji\server\server.vcxproj”在节点 2 上(build 个目标)。
 InitializeBuildStatus:
   正在创建“Debug\server.unsuccessfulbuild”，因为已指定“AlwaysCreate”。
@@ -38,4 +38,4 @@ FinalizeBuildStatus:
 
 生成成功。
 
-已用时间 00:00:41.70
+已用时间 00:00:08.25

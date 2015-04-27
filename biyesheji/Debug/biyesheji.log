@@ -1,35 +1,43 @@
-﻿生成启动时间为 2015/4/24 18:09:26。
-     1>项目“C:\biyesheji\biyesheji\biyesheji\biyesheji.vcxproj”在节点 2 上(build 个目标)。
-     1>InitializeBuildStatus:
-         正在创建“Debug\biyesheji.unsuccessfulbuild”，因为已指定“AlwaysCreate”。
-       ClCompile:
-         C:\Program Files (x86)\Microsoft Visual Studio 10.0\VC\bin\CL.exe /c /ZI /nologo /W3 /WX- /Od /Oy- /D WIN32 /D _WINDOWS /D _DEBUG /D _UNICODE /D UNICODE /D _AFXDLL /Gm /EHsc /RTC1 /MDd /GS /fp:precise /Zc:wchar_t /Zc:forScope /Yc"StdAfx.h" /Fp"Debug\biyesheji.pch" /Fo"Debug\\" /Fd"Debug\vc100.pdb" /Gd /TP /analyze- /errorReport:prompt stdafx.cpp
-         stdafx.cpp
-         C:\Program Files (x86)\Microsoft Visual Studio 10.0\VC\bin\CL.exe /c /ZI /nologo /W3 /WX- /Od /Oy- /D WIN32 /D _WINDOWS /D _DEBUG /D _UNICODE /D UNICODE /D _AFXDLL /Gm /EHsc /RTC1 /MDd /GS /fp:precise /Zc:wchar_t /Zc:forScope /Yu"StdAfx.h" /Fp"Debug\biyesheji.pch" /Fo"Debug\\" /Fd"Debug\vc100.pdb" /Gd /TP /analyze- /errorReport:prompt biyesheji.cpp ClientDlg.cpp
-         ClientDlg.cpp
-         biyesheji.cpp
-         正在生成代码...
-       ResourceCompile:
-         C:\Program Files (x86)\Microsoft SDKs\Windows\v7.0A\bin\rc.exe /D _DEBUG /D _UNICODE /D UNICODE /D _AFXDLL /l"0x0804" /IDebug\ /nologo /fo"Debug\biyesheji.res" biyesheji.rc 
-       ManifestResourceCompile:
-         C:\Program Files (x86)\Microsoft SDKs\Windows\v7.0A\bin\rc.exe /nologo /fo"Debug\biyesheji.exe.embed.manifest.res" Debug\biyesheji_manifest.rc 
-       Link:
-         C:\Program Files (x86)\Microsoft Visual Studio 10.0\VC\bin\link.exe /ERRORREPORT:PROMPT /OUT:"C:\biyesheji\biyesheji\Debug\biyesheji.exe" /INCREMENTAL /NOLOGO /MANIFEST /ManifestFile:"Debug\biyesheji.exe.intermediate.manifest" /MANIFESTUAC:"level='asInvoker' uiAccess='false'" /DEBUG /PDB:"C:\biyesheji\biyesheji\Debug\biyesheji.pdb" /SUBSYSTEM:WINDOWS /TLBID:1 /ENTRY:"wWinMainCRTStartup" /DYNAMICBASE /NXCOMPAT /IMPLIB:"C:\biyesheji\biyesheji\Debug\biyesheji.lib" /MACHINE:X86 Debug\biyesheji.res
-         Debug\biyesheji.exe.embed.manifest.res
-         Debug\biyesheji.obj
-         Debug\ClientDlg.obj
-         Debug\stdafx.obj
-       Manifest:
-         C:\Program Files (x86)\Microsoft SDKs\Windows\v7.0A\bin\mt.exe /nologo /verbose /out:"Debug\biyesheji.exe.embed.manifest" /manifest Debug\biyesheji.exe.intermediate.manifest "C:\Program Files (x86)\Microsoft Visual Studio 10.0\VC\Include\Manifest\dpiaware.manifest"
-         所有输出均为最新。
-       LinkEmbedManifest:
-         所有输出均为最新。
-         biyesheji.vcxproj -> C:\biyesheji\biyesheji\Debug\biyesheji.exe
-       FinalizeBuildStatus:
-         正在删除文件“Debug\biyesheji.unsuccessfulbuild”。
-         正在对“Debug\biyesheji.lastbuildstate”执行 Touch 任务。
-     1>已完成生成项目“C:\biyesheji\biyesheji\biyesheji\biyesheji.vcxproj”(build 个目标)的操作。
+﻿生成启动时间为 2015-4-26 18:17:08。
+项目“E:\毕设\biyesheji\biyesheji\biyesheji.vcxproj”在节点 2 上(build 个目标)。
+InitializeBuildStatus:
+  正在创建“Debug\biyesheji.unsuccessfulbuild”，因为已指定“AlwaysCreate”。
+ClCompile:
+  所有输出均为最新。
+  c:\Program Files\Microsoft Visual Studio 10.0\VC\bin\CL.exe /c /I.\SkinWin /I..\common\inc /I"E:\毕设\biyesheji\biyesheji\\" /ZI /nologo /W3 /WX- /Od /Oy- /D WIN32 /D _WINDOWS /D _DEBUG /D _MBCS /D _AFXDLL /Gm /EHsc /RTC1 /MDd /GS /fp:precise /Zc:wchar_t /Zc:forScope /Yu"StdAfx.h" /Fp"Debug\biyesheji.pch" /Fo"Debug\\" /Fd"Debug\vc100.pdb" /Gd /TP /analyze- /errorReport:prompt ListenConnectionThread.cpp
+  ListenConnectionThread.cpp
+e:\毕设\biyesheji\biyesheji\listenconnectionthread.cpp(109): warning C4996: 'strcpy': This function or variable may be unsafe. Consider using strcpy_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+          c:\program files\microsoft visual studio 10.0\vc\include\string.h(105) : 参见“strcpy”的声明
+e:\毕设\biyesheji\biyesheji\listenconnectionthread.cpp(163): warning C4101: “emServer”: 未引用的局部变量
+ResourceCompile:
+  所有输出均为最新。
+ManifestResourceCompile:
+  所有输出均为最新。
+Link:
+  c:\Program Files\Microsoft Visual Studio 10.0\VC\bin\link.exe /ERRORREPORT:PROMPT /OUT:"E:\毕设\biyesheji\Debug\biyesheji.exe" /INCREMENTAL /NOLOGO /MANIFEST /ManifestFile:"Debug\biyesheji.exe.intermediate.manifest" /MANIFESTUAC:"level='asInvoker' uiAccess='false'" /DEBUG /PDB:"E:\毕设\biyesheji\Debug\biyesheji.pdb" /SUBSYSTEM:WINDOWS /TLBID:1 /DYNAMICBASE /NXCOMPAT /IMPLIB:"E:\毕设\biyesheji\Debug\biyesheji.lib" /MACHINE:X86 Debug\biyesheji.res
+  Debug\biyesheji.exe.embed.manifest.res
+  Debug\NL_QQwry.obj
+  Debug\threadex.obj
+  Debug\biyesheji.obj
+  Debug\ClientDlg.obj
+  Debug\DealCMDThread.obj
+  Debug\ListenConnectionThread.obj
+  Debug\skinscrollbar.obj
+  Debug\skinscrollwnd.obj
+  Debug\SortHeaderCtrl.obj
+  Debug\XPListCtrl.obj
+  Debug\stdafx.obj
+Manifest:
+  c:\Program Files\Microsoft SDKs\Windows\v7.0A\bin\mt.exe /nologo /verbose /out:"Debug\biyesheji.exe.embed.manifest" /manifest Debug\biyesheji.exe.intermediate.manifest "c:\Program Files\Microsoft Visual Studio 10.0\VC\Include\Manifest\dpiaware.manifest"
+  所有输出均为最新。
+LinkEmbedManifest:
+  所有输出均为最新。
+  biyesheji.vcxproj -> E:\毕设\biyesheji\Debug\biyesheji.exe
+FinalizeBuildStatus:
+  正在删除文件“Debug\biyesheji.unsuccessfulbuild”。
+  正在对“Debug\biyesheji.lastbuildstate”执行 Touch 任务。
+已完成生成项目“E:\毕设\biyesheji\biyesheji\biyesheji.vcxproj”(build 个目标)的操作。
 
 生成成功。
 
-已用时间 00:00:05.35
+已用时间 00:00:02.48

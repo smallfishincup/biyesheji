@@ -66,7 +66,7 @@ BOOL CConnect::InitConnection()
 		m_pNetProcotolThread = NULL;
 	}
 
-	m_strClientIP = "127.0.0.1";
+	m_strClientIP = "192.168.1.106";
 	m_nClientPort = 80;
 	m_pNetProcotolThread = new CNetProtocolThread(m_hwnd,m_strClientIP,m_nClientPort);
 	CheckPointer(m_pNetProcotolThread,FALSE);
