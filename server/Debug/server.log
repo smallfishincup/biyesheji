@@ -1,17 +1,37 @@
-﻿生成启动时间为 2015-4-26 18:42:22。
-项目“E:\毕设\biyesheji\server\server.vcxproj”在节点 2 上(build 个目标)。
+﻿生成启动时间为 2015-4-28 7:54:12。
+项目“E:\douwo\biyesheji\server\server.vcxproj”在节点 2 上(rebuild 个目标)。
+_PrepareForClean:
+  正在删除文件“Debug\server.lastbuildstate”。
 InitializeBuildStatus:
   正在创建“Debug\server.unsuccessfulbuild”，因为已指定“AlwaysCreate”。
 ClCompile:
-  所有输出均为最新。
-  c:\Program Files\Microsoft Visual Studio 10.0\VC\bin\CL.exe /c /I..\common\inc /I"E:\毕设\biyesheji\server\\" /ZI /nologo /W3 /WX- /Od /Oy- /D WIN32 /D _WINDOWS /D _DEBUG /D _MBCS /D _AFXDLL /Gm /EHsc /RTC1 /MDd /GS /fp:precise /Zc:wchar_t /Zc:forScope /Yu"StdAfx.h" /Fp"Debug\server.pch" /Fo"Debug\\" /Fd"Debug\vc100.pdb" /Gd /TP /analyze- /errorReport:prompt Connect.cpp
+  c:\Program Files\Microsoft Visual Studio 10.0\VC\bin\CL.exe /c /I..\common\inc /IE:\douwo\biyesheji\server\ /ZI /nologo /W3 /WX- /Od /Oy- /D WIN32 /D _WINDOWS /D _DEBUG /D _MBCS /D _AFXDLL /Gm /EHsc /RTC1 /MDd /GS /fp:precise /Zc:wchar_t /Zc:forScope /Yc"StdAfx.h" /Fp"Debug\server.pch" /Fo"Debug\\" /Fd"Debug\vc100.pdb" /Gd /TP /analyze- /errorReport:prompt stdafx.cpp
+  stdafx.cpp
+e:\douwo\biyesheji\common\inc\utilitystruct.h(65): warning C4200: 使用了非标准扩展 : 结构/联合中的零大小数组
+          当 UDT 包含大小为零的数组时，无法生成复制构造函数或副本赋值运算符
+  c:\Program Files\Microsoft Visual Studio 10.0\VC\bin\CL.exe /c /I..\common\inc /IE:\douwo\biyesheji\server\ /ZI /nologo /W3 /WX- /Od /Oy- /D WIN32 /D _WINDOWS /D _DEBUG /D _MBCS /D _AFXDLL /Gm /EHsc /RTC1 /MDd /GS /fp:precise /Zc:wchar_t /Zc:forScope /Yu"StdAfx.h" /Fp"Debug\server.pch" /Fo"Debug\\" /Fd"Debug\vc100.pdb" /Gd /TP /analyze- /errorReport:prompt ..\Common\inc\RegisterKey.cpp ..\Common\inc\SystemInfo.cpp ..\Common\inc\SystemUtility.cpp ..\Common\inc\threadex.cpp ..\Common\inc\ValidFunction.cpp Connect.cpp DealCMDThread.cpp NetProtocolThread.cpp server.cpp serverDlg.cpp service.cpp
+  service.cpp
+  serverDlg.cpp
+  server.cpp
+  NetProtocolThread.cpp
+  DealCMDThread.cpp
+e:\douwo\biyesheji\server\dealcmdthread.cpp(144): warning C4996: 'strcpy': This function or variable may be unsafe. Consider using strcpy_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+          c:\program files\microsoft visual studio 10.0\vc\include\string.h(105) : 参见“strcpy”的声明
+e:\douwo\biyesheji\server\dealcmdthread.cpp(147): warning C4996: 'strcpy': This function or variable may be unsafe. Consider using strcpy_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+          c:\program files\microsoft visual studio 10.0\vc\include\string.h(105) : 参见“strcpy”的声明
   Connect.cpp
+  ValidFunction.cpp
+  threadex.cpp
+  SystemUtility.cpp
+  SystemInfo.cpp
+  RegisterKey.cpp
+  正在生成代码...
 ResourceCompile:
-  所有输出均为最新。
+  c:\Program Files\Microsoft SDKs\Windows\v7.0A\bin\rc.exe /D _DEBUG /D _AFXDLL /l"0x0804" /IDebug\ /nologo /fo"Debug\server.res" server.rc 
 ManifestResourceCompile:
-  所有输出均为最新。
+  c:\Program Files\Microsoft SDKs\Windows\v7.0A\bin\rc.exe /nologo /fo"Debug\server.exe.embed.manifest.res" Debug\server_manifest.rc 
 Link:
-  c:\Program Files\Microsoft Visual Studio 10.0\VC\bin\link.exe /ERRORREPORT:PROMPT /OUT:"E:\毕设\biyesheji\Debug\server.exe" /INCREMENTAL /NOLOGO /LIBPATH:"E:\毕设\biyesheji\Common\lib" ws2_32.lib Psapi.lib advapi32.lib /MANIFEST /ManifestFile:"Debug\server.exe.intermediate.manifest" /MANIFESTUAC:"level='asInvoker' uiAccess='false'" /DEBUG /PDB:"E:\毕设\biyesheji\Debug\server.pdb" /SUBSYSTEM:WINDOWS /TLBID:1 /DYNAMICBASE /NXCOMPAT /IMPLIB:"E:\毕设\biyesheji\Debug\server.lib" /MACHINE:X86 Debug\server.res
+  c:\Program Files\Microsoft Visual Studio 10.0\VC\bin\link.exe /ERRORREPORT:PROMPT /OUT:"E:\douwo\biyesheji\Debug\server.exe" /INCREMENTAL /NOLOGO /LIBPATH:"E:\毕设\biyesheji\Common\lib" ws2_32.lib Psapi.lib advapi32.lib /MANIFEST /ManifestFile:"Debug\server.exe.intermediate.manifest" /MANIFESTUAC:"level='asInvoker' uiAccess='false'" /DEBUG /PDB:"E:\douwo\biyesheji\Debug\server.pdb" /SUBSYSTEM:WINDOWS /TLBID:1 /DYNAMICBASE /NXCOMPAT /IMPLIB:"E:\douwo\biyesheji\Debug\server.lib" /MACHINE:X86 Debug\server.res
   Debug\server.exe.embed.manifest.res
   Debug\RegisterKey.obj
   Debug\SystemInfo.obj
@@ -26,16 +46,30 @@ Link:
   Debug\service.obj
   Debug\stdafx.obj
 Manifest:
+  正在删除文件“Debug\server.exe.embed.manifest”。
   c:\Program Files\Microsoft SDKs\Windows\v7.0A\bin\mt.exe /nologo /verbose /out:"Debug\server.exe.embed.manifest" /manifest Debug\server.exe.intermediate.manifest "c:\Program Files\Microsoft Visual Studio 10.0\VC\Include\Manifest\dpiaware.manifest"
-  所有输出均为最新。
+  c:\Program Files\Microsoft SDKs\Windows\v7.0A\bin\rc.exe /nologo /fo"Debug\server.exe.embed.manifest.res" Debug\server_manifest.rc 
 LinkEmbedManifest:
-  所有输出均为最新。
-  server.vcxproj -> E:\毕设\biyesheji\Debug\server.exe
+  c:\Program Files\Microsoft Visual Studio 10.0\VC\bin\link.exe /ERRORREPORT:PROMPT /OUT:"E:\douwo\biyesheji\Debug\server.exe" /INCREMENTAL /NOLOGO /LIBPATH:"E:\毕设\biyesheji\Common\lib" ws2_32.lib Psapi.lib advapi32.lib /MANIFEST /ManifestFile:"Debug\server.exe.intermediate.manifest" /MANIFESTUAC:"level='asInvoker' uiAccess='false'" /DEBUG /PDB:"E:\douwo\biyesheji\Debug\server.pdb" /SUBSYSTEM:WINDOWS /TLBID:1 /DYNAMICBASE /NXCOMPAT /IMPLIB:"E:\douwo\biyesheji\Debug\server.lib" /MACHINE:X86 Debug\server.res
+  Debug\server.exe.embed.manifest.res
+  Debug\RegisterKey.obj
+  Debug\SystemInfo.obj
+  Debug\SystemUtility.obj
+  Debug\threadex.obj
+  Debug\ValidFunction.obj
+  Debug\Connect.obj
+  Debug\DealCMDThread.obj
+  Debug\NetProtocolThread.obj
+  Debug\server.obj
+  Debug\serverDlg.obj
+  Debug\service.obj
+  Debug\stdafx.obj
+  server.vcxproj -> E:\douwo\biyesheji\Debug\server.exe
 FinalizeBuildStatus:
   正在删除文件“Debug\server.unsuccessfulbuild”。
   正在对“Debug\server.lastbuildstate”执行 Touch 任务。
-已完成生成项目“E:\毕设\biyesheji\server\server.vcxproj”(build 个目标)的操作。
+已完成生成项目“E:\douwo\biyesheji\server\server.vcxproj”(rebuild 个目标)的操作。
 
 生成成功。
 
-已用时间 00:00:08.25
+已用时间 00:00:08.26
