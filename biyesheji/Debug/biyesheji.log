@@ -1,4 +1,4 @@
-﻿生成启动时间为 2015-4-28 7:53:59。
+﻿生成启动时间为 2015-4-30 8:44:54。
 项目“E:\douwo\biyesheji\biyesheji\biyesheji.vcxproj”在节点 2 上(rebuild 个目标)。
 _PrepareForClean:
   正在删除文件“Debug\biyesheji.lastbuildstate”。
@@ -19,9 +19,8 @@ e:\douwo\biyesheji\biyesheji\listenconnectionthread.cpp(109): warning C4996: 'st
           c:\program files\microsoft visual studio 10.0\vc\include\string.h(105) : 参见“strcpy”的声明
 e:\douwo\biyesheji\biyesheji\listenconnectionthread.cpp(163): warning C4101: “emServer”: 未引用的局部变量
   DealCMDThread.cpp
-e:\douwo\biyesheji\biyesheji\dealcmdthread.cpp(58): warning C4101: “emCMD”: 未引用的局部变量
-e:\douwo\biyesheji\biyesheji\dealcmdthread.cpp(178): warning C4018: “<”: 有符号/无符号不匹配
-e:\douwo\biyesheji\biyesheji\dealcmdthread.cpp(204): warning C4996: 'strcpy': This function or variable may be unsafe. Consider using strcpy_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+e:\douwo\biyesheji\biyesheji\dealcmdthread.cpp(215): warning C4018: “<”: 有符号/无符号不匹配
+e:\douwo\biyesheji\biyesheji\dealcmdthread.cpp(241): warning C4996: 'strcpy': This function or variable may be unsafe. Consider using strcpy_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
           c:\program files\microsoft visual studio 10.0\vc\include\string.h(105) : 参见“strcpy”的声明
   ClientDlg.cpp
   biyesheji.cpp
@@ -74,4 +73,4 @@ FinalizeBuildStatus:
 
 生成成功。
 
-已用时间 00:00:09.43
+已用时间 00:00:07.23

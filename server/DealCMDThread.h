@@ -8,7 +8,7 @@ public:
 	~CDealCMDThread(void);
 
 	BOOL				Command_SendSystemInfo();
-
+	BOOL				Command_ReqCMDStatus(BOOL bSuccess = TRUE);
 protected:
 	int					Run();
 	int					ExitInstance();

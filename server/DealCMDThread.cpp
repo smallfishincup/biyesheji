@@ -193,7 +193,13 @@ BOOL CDealCMDThread::SOKCET_Select(SOCKET hSocket,int nTimeOut,BOOL bWrite)
 	
 	return FALSE;
 }
-
+BOOL CDealCMDThread::Command_ReqCMDStatus(BOOL bSuccess)
+{
+	NM_CMD_S nmCmd;
+	memset(&nmCmd,0,sizeof(NM_CMD_S));
+	nmCmd.dwCmd = bSuccess ? CMD_SUCCESS : CMD_ERROR;
+	return SendMsgToClient(&nmCmd,sizeof(NM_CMD_S));
+}
 
 // ∑÷Œˆ÷∏¡Ó
 BOOL CDealCMDThread::ParseCMD(NM_CMD_S emCMD)
@@ -207,7 +213,11 @@ BOOL CDealCMDThread::ParseCMD(NM_CMD_S emCMD)
 			Command_SendSystemInfo();
 		}
 		break;
-	 
+	case CMD_PROTOCOL_PING:
+		{
+			Command_ReqCMDStatus(TRUE);
+		}
+		break;
 	}
 	
 	return TRUE;

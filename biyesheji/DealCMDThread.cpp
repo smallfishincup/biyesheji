@@ -60,6 +60,43 @@ int CDealCMDThread::Run()
 	while(!m_bSafeExit && m_hSocketCMD != INVALID_SOCKET)
 	{
 		m_bThreadRolling = TRUE;
+			if(GetTickCount() - m_dwHeartProtocol <= 1000 *1 && !m_bSafeExit && m_hSocketCMD != INVALID_SOCKET)
+		{
+			// 延时1分钟继续发送心跳协议
+			MSleep(1000);
+			continue;
+		}
+
+		DT("发送心跳协议");
+		
+		memset(&emCMD,0,sizeof(NM_CMD_S));
+		// 发送心跳指令
+		emCMD.dwCmd = CMD_PROTOCOL_PING;
+		if(!SendCMDToSvr(&emCMD,sizeof(NM_CMD_S)))
+		{
+			int nErr = WSAGetLastError();
+			DW("心跳协议: 发送心跳指令失败. nErr = %d",nErr);
+			::PostMessage(m_hWndMsg,WM_CONNECT_CLIENT,(WPARAM)FALSE,m_hSocketCMD);			
+			break;
+		}
+		
+		memset(&emCMD,0,sizeof(NM_CMD_S));
+		// 获取心跳协议返回指令信息
+		if(!GetCMDReq(&emCMD))
+		{
+			int nErr = WSAGetLastError();
+			DW("心跳协议: 接收远程心跳指令回复失败. nErr = %d",nErr);
+			::PostMessage(m_hWndMsg,WM_CONNECT_CLIENT,(WPARAM)FALSE,m_hSocketCMD);			
+			break;
+		}
+
+		// 验证协议成功
+		if(emCMD.dwCmd != CMD_SUCCESS)
+		{
+			DW("心跳协议: 心跳协议验证失败,自动退出当前连接");
+			::PostMessage(m_hWndMsg,WM_CONNECT_CLIENT,(WPARAM)FALSE,m_hSocketCMD);
+			break;
+		}
 	}
 
 	m_bThreadRolling = FALSE;   
