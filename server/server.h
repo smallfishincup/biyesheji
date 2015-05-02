@@ -19,7 +19,8 @@ class CserverApp : public CWinApp
 {
 public:
 	CserverApp();
-
+	CString SZSERVICENAME;
+	CString  SZSERVICEDISPLAYNAME;
 // ÖØÐ´
 public:
 	virtual BOOL InitInstance();

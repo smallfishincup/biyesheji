@@ -342,6 +342,10 @@ CString CClientDlg::GetSystemEditionString(DWORD dwMajorVersion,DWORD dwMinorVer
 			strRet = "Windows XP";
         if(dwMajorVersion == 5 && dwMinorVersion == 2)
 			strRet = "Windows Server 2003";
+		if(dwMajorVersion == 6 && dwMinorVersion == 1)
+			strRet = "Windows 7";
+        if(dwMajorVersion == 6 && dwMinorVersion == 2)
+			strRet = "Windows 8";
 		break;
 	default:
 		strRet = "δ֪�汾";

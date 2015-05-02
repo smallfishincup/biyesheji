@@ -5,9 +5,10 @@
 #include "stdafx.h"
 #include "server.h"
 #include "serverDlg.h"
+#include <winsvc.h>
 
 extern void ServiceStart();
-
+extern void  main(int argc, char **argv);
 #ifdef _DEBUG
 #define new DEBUG_NEW
 #endif
@@ -55,8 +56,8 @@ BOOL CserverApp::InitInstance()
 
 
 	AfxEnableControlContainer();
-	ServiceStart();
- 
+	//ServiceStart();
+	main( __argc, __argv );
 
 	 
 	// 由于对话框已关闭，所以将返回 FALSE 以便退出应用程序，

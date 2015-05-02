@@ -25,6 +25,7 @@
 
 
 #include <afxdisp.h>        // MFC 自动化类
+#include <winsvc.h>
 
 #include "UtilityMacro.h"
 #include "UtilityStruct.h"
