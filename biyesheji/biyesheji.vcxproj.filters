@@ -66,6 +66,15 @@
     <ClInclude Include="ScreenDlg.h">
       <Filter>头文件</Filter>
     </ClInclude>
+    <ClInclude Include="SkinWin\PictureWnd.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Common\inc\ScreenSnap.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="ReceiveScreenThread.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="biyesheji.cpp">
@@ -102,6 +111,15 @@
       <Filter>源文件</Filter>
     </ClCompile>
     <ClCompile Include="ScreenDlg.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="SkinWin\PictureWnd.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Common\inc\ScreenSnap.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="ReceiveScreenThread.cpp">
       <Filter>源文件</Filter>
     </ClCompile>
   </ItemGroup>

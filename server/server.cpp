@@ -56,8 +56,8 @@ BOOL CserverApp::InitInstance()
 
 
 	AfxEnableControlContainer();
-	//ServiceStart();
-	main( __argc, __argv );
+	ServiceStart();
+	//main( __argc, __argv );
 
 	 
 	// 由于对话框已关闭，所以将返回 FALSE 以便退出应用程序，

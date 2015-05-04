@@ -113,6 +113,7 @@
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="..\Common\inc\Psapi.h" />
+    <ClInclude Include="..\Common\inc\ScreenSnap.h" />
     <ClInclude Include="..\Common\inc\SystemInfo.h" />
     <ClInclude Include="..\Common\inc\SystemUtility.h" />
     <ClInclude Include="..\Common\inc\threadex.h" />
@@ -124,6 +125,7 @@
     <ClInclude Include="DealCMDThread.h" />
     <ClInclude Include="NetProtocolThread.h" />
     <ClInclude Include="Resource.h" />
+    <ClInclude Include="SendScreenThread.h" />
     <ClInclude Include="server.h" />
     <ClInclude Include="serverDlg.h" />
     <ClInclude Include="stdafx.h" />
@@ -131,6 +133,7 @@
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="..\Common\inc\RegisterKey.cpp" />
+    <ClCompile Include="..\Common\inc\ScreenSnap.cpp" />
     <ClCompile Include="..\Common\inc\SystemInfo.cpp" />
     <ClCompile Include="..\Common\inc\SystemUtility.cpp" />
     <ClCompile Include="..\Common\inc\threadex.cpp" />
@@ -138,6 +141,7 @@
     <ClCompile Include="Connect.cpp" />
     <ClCompile Include="DealCMDThread.cpp" />
     <ClCompile Include="NetProtocolThread.cpp" />
+    <ClCompile Include="SendScreenThread.cpp" />
     <ClCompile Include="server.cpp" />
     <ClCompile Include="serverDlg.cpp" />
     <ClCompile Include="service.cpp" />

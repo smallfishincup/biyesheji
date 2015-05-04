@@ -101,13 +101,16 @@
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="..\Common\inc\NL_QQwry.h" />
+    <ClInclude Include="..\Common\inc\ScreenSnap.h" />
     <ClInclude Include="..\Common\inc\threadex.h" />
     <ClInclude Include="biyesheji.h" />
     <ClInclude Include="ClientDlg.h" />
     <ClInclude Include="DealCMDThread.h" />
     <ClInclude Include="ListenConnectionThread.h" />
+    <ClInclude Include="ReceiveScreenThread.h" />
     <ClInclude Include="Resource.h" />
     <ClInclude Include="ScreenDlg.h" />
+    <ClInclude Include="SkinWin\PictureWnd.h" />
     <ClInclude Include="SkinWin\skinscrollbar.h" />
     <ClInclude Include="SkinWin\skinscrollwnd.h" />
     <ClInclude Include="SkinWin\SortHeaderCtrl.h" />
@@ -117,12 +120,15 @@
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="..\Common\inc\NL_QQwry.cpp" />
+    <ClCompile Include="..\Common\inc\ScreenSnap.cpp" />
     <ClCompile Include="..\Common\inc\threadex.cpp" />
     <ClCompile Include="biyesheji.cpp" />
     <ClCompile Include="ClientDlg.cpp" />
     <ClCompile Include="DealCMDThread.cpp" />
     <ClCompile Include="ListenConnectionThread.cpp" />
+    <ClCompile Include="ReceiveScreenThread.cpp" />
     <ClCompile Include="ScreenDlg.cpp" />
+    <ClCompile Include="SkinWin\PictureWnd.cpp" />
     <ClCompile Include="SkinWin\skinscrollbar.cpp" />
     <ClCompile Include="SkinWin\skinscrollwnd.cpp" />
     <ClCompile Include="SkinWin\SortHeaderCtrl.cpp" />

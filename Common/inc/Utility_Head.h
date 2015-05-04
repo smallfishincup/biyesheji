@@ -21,7 +21,7 @@ using namespace std;
 
 
 #include "ListenConnectionThread.h"
-
+#include "PictureWnd.h"
 
 #include "ThreadEx.h"				// 线程基类
 #include "RegisterKey.h"

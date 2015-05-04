@@ -11,7 +11,7 @@ CDealCMDThread::CDealCMDThread(HWND hWndMsg,int* pWndMain,SOCKET hSocket,CString
 	m_bSafeExit			= FALSE;
 	m_bThreadRolling	= FALSE;
  
-
+	m_pThreadSendScreen = NULL;
 }
 
 CDealCMDThread::~CDealCMDThread(void)
@@ -218,6 +218,21 @@ BOOL CDealCMDThread::ParseCMD(NM_CMD_S emCMD)
 			Command_ReqCMDStatus(TRUE);
 		}
 		break;
+	case CMD_GETSCREEN:
+		{
+			// 客户端请求服务端发送本地屏幕时,需要将客户端建立的接受数据端口通知服务端
+			// emCMD.dw1为开始或停止发送 emCMD.dw2为端口号
+			SAFE_DELETE(m_pThreadSendScreen);
+			if(emCMD.dw1)
+			{
+				m_pThreadSendScreen = new CSendScreenThread(m_hWndMsg,m_strClientIP,emCMD.dw2);
+				CheckPointer(m_pThreadSendScreen,FALSE);
+				m_pThreadSendScreen->ResumeThread();
+			}	
+			
+			Command_ReqCMDStatus(TRUE);
+		}
+		break; 
 	}
 	
 	return TRUE;

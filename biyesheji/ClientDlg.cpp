@@ -167,8 +167,13 @@ HCURSOR CClientDlg::OnQueryDragIcon()
 void CClientDlg::OnBnClickedMonitor()
 {
 	// TODO: 在此添加控件通知处理程序代码
-		CScreenDlg dlg(NULL,this);
+	SOCKET hSocket = GetSelectComputerSocket();
+	if(hSocket != INVALID_SOCKET)
+	{
+		// 建立查看远程屏幕窗口并将接收到的图象数据显示出来
+		CScreenDlg dlg(NULL,this,hSocket);
 		dlg.DoModal();
+	}
 }
 
 
@@ -353,4 +358,25 @@ CString CClientDlg::GetSystemEditionString(DWORD dwMajorVersion,DWORD dwMinorVer
 		strRet = "未知版本";
 	}
 	return strRet;
+}
+
+SOCKET CClientDlg::GetSelectComputerSocket()
+{
+	int nList = GetListSelect();
+	if(nList >= 0)
+	{
+		SERVER_REMOTE_S emServer;
+		emServer = m_pListenThread->m_arrServer.GetAt(nList);
+		if(emServer.hSocketServer != INVALID_SOCKET)
+		{
+			return emServer.hSocketServer;
+		}
+	}
+	
+	return INVALID_SOCKET;
+}
+// 获取列表选中项
+int CClientDlg::GetListSelect()
+{
+	return m_listComputer.GetNextItem(-1,LVNI_SELECTED);
 }
