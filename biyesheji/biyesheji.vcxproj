@@ -107,6 +107,7 @@
     <ClInclude Include="DealCMDThread.h" />
     <ClInclude Include="ListenConnectionThread.h" />
     <ClInclude Include="Resource.h" />
+    <ClInclude Include="ScreenDlg.h" />
     <ClInclude Include="SkinWin\skinscrollbar.h" />
     <ClInclude Include="SkinWin\skinscrollwnd.h" />
     <ClInclude Include="SkinWin\SortHeaderCtrl.h" />
@@ -121,6 +122,7 @@
     <ClCompile Include="ClientDlg.cpp" />
     <ClCompile Include="DealCMDThread.cpp" />
     <ClCompile Include="ListenConnectionThread.cpp" />
+    <ClCompile Include="ScreenDlg.cpp" />
     <ClCompile Include="SkinWin\skinscrollbar.cpp" />
     <ClCompile Include="SkinWin\skinscrollwnd.cpp" />
     <ClCompile Include="SkinWin\SortHeaderCtrl.cpp" />

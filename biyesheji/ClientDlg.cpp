@@ -6,7 +6,7 @@
 #include "biyesheji.h"
 #include "ClientDlg.h"
 #include "afxdialogex.h"
-
+#include "ScreenDlg.h"
 #ifdef _DEBUG
 #define new DEBUG_NEW
 #endif
@@ -167,6 +167,8 @@ HCURSOR CClientDlg::OnQueryDragIcon()
 void CClientDlg::OnBnClickedMonitor()
 {
 	// TODO: 在此添加控件通知处理程序代码
+		CScreenDlg dlg(NULL,this);
+		dlg.DoModal();
 }
 
 

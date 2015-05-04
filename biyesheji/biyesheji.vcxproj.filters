@@ -63,6 +63,9 @@
     <ClInclude Include="..\Common\inc\NL_QQwry.h">
       <Filter>头文件</Filter>
     </ClInclude>
+    <ClInclude Include="ScreenDlg.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="biyesheji.cpp">
@@ -96,6 +99,9 @@
       <Filter>源文件</Filter>
     </ClCompile>
     <ClCompile Include="..\Common\inc\NL_QQwry.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="ScreenDlg.cpp">
       <Filter>源文件</Filter>
     </ClCompile>
   </ItemGroup>
