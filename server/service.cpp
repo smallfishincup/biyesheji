@@ -48,18 +48,15 @@ void _CRTAPI1 main(int argc, char **argv)
     if ( (argc > 1) && ((*argv[1] == '-') || (*argv[1] == '/')) ) {
         if ( _stricmp( "install", argv[1]+1 ) == 0 )
         {
-				//MessageBox(NULL,"1","123",MB_OK);
             CmdSetup();
         }
         else if ( _stricmp( "remove", argv[1]+1 ) == 0 )
        {
-			//MessageBox(NULL,"2","123",MB_OK);
             CmdRemoveService();
         }
         else if ( _stricmp( "debug", argv[1]+1 ) == 0 )
         {
             bDebug = TRUE;
-			//MessageBox(NULL,"3","123",MB_OK);
             CmdDebugService();
         }
 		else {

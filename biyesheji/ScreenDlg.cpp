@@ -27,7 +27,6 @@ CScreenDlg::CScreenDlg(CWnd* pParent /*=NULL*/,CClientDlg* pClientDlg,SOCKET hSo
 	m_pOriBuffer		= new BYTE[1024 * 1024 * 5];		// 5M 原始数据缓冲
 	m_dwFrameCount		= 0;
 	m_dwScreenSize		= 0;
-	InitScreen();
 	//m_hBKBrush			= CreateSolidBrush(MAIN_FRAME_BK_COLOR);
 }
 
@@ -54,6 +53,8 @@ BOOL CScreenDlg::OnInitDialog(){
 	GetClientRect(&rcWnd);
 	m_stVideo.Create(NULL, NULL, WS_VISIBLE | WS_CHILD | WS_HSCROLL | WS_VSCROLL, CRect(0,0,900,440), this, 0);
 	m_stVideo.ModifyStyle(NULL, WS_HSCROLL | WS_VSCROLL);
+
+	InitScreen();
 	return TRUE;
 }
 //重载函数 控件跟着对话框的改变而改变
